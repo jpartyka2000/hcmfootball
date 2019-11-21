@@ -1,0 +1,109 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <style>
+        html *
+        {
+            font-family: Helvetica !important;
+        }
+    </style>
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>  {% block title %} Jeff's Fantasy Football App {% endblock %}</title>
+
+
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+    <!-- Bootstrap core CSS -->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}" charset="utf-8">
+	<!--<link rel="stylesheet" type="text/css" href="{% static 'ilightbox/css/ilightbox.css' %}" charset="utf-8">-->
+
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/jumbotron.css' %}" charset="utf-8">
+
+	<!--  -->
+    <!-- Custom styles for this template -->
+		{% block stylesheets %}
+
+				<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"  charset="utf-8">
+
+		{% endblock %}
+
+  </head>
+
+	<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #2578A9 ; border-color: #2578A9 ;">
+      <div class="container-fluid">
+          <div style="float:left; margin-top: 2px;">
+
+          </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+          </button>
+
+            <span style="color:white; font-size: 24px;">Jeff's Fantasy Football Draft App</span>
+        </div><!--/.navbar-header -->
+
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-left">
+
+
+            </ul>
+
+		  <ul class="nav navbar-nav navbar-right">
+		       <li> <a href="{% url 'logout'%}" style="color:white;">
+						Logout
+					</a>
+				</li>
+
+          </ul>
+
+
+
+        </div><!--/.navbar-collapse -->
+      </div><!--/.container -->
+    </div><!--/.navbar navbar-inverse navbar-fixed-top -->
+	{% comment %}
+    <div>
+		<p style="color: red;text-align:center;font-weight: bold;">NOTE: We are adding new features to our site. You may experience site errors over the next 24 hours.</p>
+	</div>
+	{% endcomment %}
+
+
+        {% block mainContent%}
+			<fieldset class="container">
+				<legend>This is baseline content</legend>
+			</fieldset>
+		{% endblock %}
+
+		<div class="container">
+			<div class='row'>
+				<footer>
+					<p class='text-center'>
+
+					</p>
+				</footer>
+			</div>
+			<div class='row'>
+
+			</div>
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,103 @@
+{# load staticfiles #}
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+
+	<!-- Core ilightbox scripts and dependencies -->
+
+
+	<!--<link rel="stylesheet" type="text/css" href="{% static 'ilightbox/dark-skin/skin.css' %}" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'ilightbox/light-skin/skin.css' %}" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'ilightbox/parade-skin/skin.css' %}" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'ilightbox/metro-black-skin/skin.css' %}" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'ilightbox/metro-white-skin/skin.css' %}" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'ilightbox/mac-skin/skin.css' %}" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'ilightbox/smooth-skin/skin.css' %}" charset="utf-8">-->
+
+	<link rel="stylesheet" type="text/css" href="{% static 'ilightbox/css/ilightbox.css' %}" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/jumbotron.css' %}" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" charset="utf-8">
+
+
+	<!-- Bootstrap core CSS -->
+
+    <!-- Custom styles for this template -->
+
+
+  </head>
+
+
+
+
+	<body>
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+          </button>
+
+
+        </div><!--/.navbar-header -->
+
+        <div class="navbar-collapse collapse">
+
+
+
+
+        </div><!--/.navbar-collapse -->
+      </div><!--/.container -->
+    </div><!--/.navbar navbar-inverse navbar-fixed-top -->
+
+
+
+
+
+        {% block mainContent%}
+			<fieldset>
+				<legend>This is baseline content</legend>
+			</fieldset>
+		{% endblock %}
+
+
+
+
+		<div class="container">
+
+			<div class='row'>
+				<footer>
+
+				</footer>
+
+			</div>
+			<div class='row'>
+
+			</div>
+		</div>
+
+
+		<!-- Bootstrap core JavaScript -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</body>
+</html>
+
