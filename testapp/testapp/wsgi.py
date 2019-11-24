@@ -1,6 +1,7 @@
 
 import os
 import sys
+import meta
 
 path = os.path.expanduser('/home/jpartyka/django_projects/testapp')
 if path not in sys.path:

@@ -16,22 +16,28 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from testapp import views
+
+import sys
+sys.path.append('/home/jpartyka/django_projects')
+
+from meta import views as metaviews
+from testapp import views as testviews
 
 from django.contrib.auth import views as auth_views
+
+
+
 
 admin.autodiscover()
 
 urlpatterns = [
-    #path('', views.index, name='index'),
-    path('', auth_views.LoginView.as_view(template_name="registration/login.html"), name='login'),
-    path('login/', auth_views.LoginView.as_view(template_name="registration/login.html"), name='login'),
-    path('football/', views.index, name='index'),
+    path('', metaviews.show_login_page, name='show_login_page'),
+    path('home/', metaviews.show_login_page, name='show_login_page'),
+    path('login/', metaviews.login_site_user, name='login'),
+    path('football/', testviews.index, name='index'),
     path('logout/', auth_views.LoginView.as_view(template_name="registration/logout.html"), name='logout'),
-    path('accounts/profile/', views.index, name='index'),
     #path('register/', special_registration_page, name='register'),
     path('admin/', admin.site.urls),
 
-    path('test_index/', views.test_index, name='test_index'),
-    path(r'^post_draft_pick/$', views.post_draft_pick, name='post_draft_pick'),
+    path(r'^post_draft_pick/$', testviews.post_draft_pick, name='post_draft_pick'),
 ]

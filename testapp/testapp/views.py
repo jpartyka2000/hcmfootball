@@ -68,7 +68,6 @@ def post_draft_pick(request):
         itemcount += 1
 
     #reload page
-    #return HttpResponseRedirect('/hcmfootball')
     return HttpResponse(0)
 
 
@@ -76,12 +75,7 @@ def post_draft_pick(request):
 def index(request):
     context = {}
 
-    #username = request.user.username
-    #first_name = request.user.first_name
-    #last_name = request.user.last_name
-    username = 'jpartyka'
-    first_name = 'jeff'
-    last_name = 'partyka'
+    username = request.session['user_name']
     now = datetime.datetime.now()
 
     if 'year_select' in request.POST:
@@ -117,13 +111,6 @@ def index(request):
     number_of_owners = len(owner_query_obj)
 
     welcome_message = 'The ' + str(draft_year) + ' HCM Football League Draft'
-
-    # query ScienceUsers model to retrieve user_id
-    #user_obj = Users.objects.using("pa_io").get(first_name=first_name, last_name=last_name)
-    #user_id = user_obj.user_id
-
-    # save as session param
-    #request.session['user_id'] = user_id
 
     owners_dict = {}
 
@@ -202,8 +189,8 @@ def index(request):
         rounds_html_str += "<br />"
         rounds_html_str += "</td></tr></table>"
 
-    #context['user_id'] = user_id
-    context['user_id'] = 1
+    context['user_name'] = username
+    #context['user_id'] = 1
     context['rounds_html'] = rounds_html_str
     context['welcome_message'] = welcome_message
     context['draft_year'] = draft_year

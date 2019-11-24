@@ -135,7 +135,7 @@
 <form name="roundForm" action="{% url 'post_draft_pick' %}" method="post">
     {% csrf_token %}
     {{ rounds_html | safe }}
-    <input id='user_id_field' type='hidden' value='{{ user_id }}' />
+    <input id='user_name_field' type='hidden' value='{{ user_name }}' />
 </form>
 </div>
 
@@ -144,9 +144,9 @@
 
       $(".pick_field").change(function() {
 
-            var user_id = $("#user_id_field").val()
+            var user_name = $("#user_name_field").val()
 
-            if (user_id != '24091153') {
+            if (user_name != 'jpartyka') {
 	            var field_text = $(this).val()
 	            if (field_text.length > 0) {
 	                alert("You are not allowed to enter text")
