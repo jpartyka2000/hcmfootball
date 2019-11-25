@@ -5,14 +5,13 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import HttpResponse
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
-from django.db.models import Max
 from collections import OrderedDict
 from django.views.decorators.csrf import csrf_exempt
 
 from testapp.models import HcmFbDraftPicks, HcmFbOwnerList, HcmFbPlayerList
 
-import psycopg2
 import datetime
+import json
 
 @csrf_exempt
 def post_draft_pick(request):
@@ -21,8 +20,7 @@ def post_draft_pick(request):
     pick_dict = json.loads(pick_dict_map_str)
 
     draft_year = int(request.POST["year_select_value"])
-
-    round_num = int(pick_dict.keys()[0].split("_")[1])
+    round_num = int(next(iter(pick_dict)).split("_")[1])
 
     #Get latest primary key value from DB
     starting_pk_id=-1
@@ -33,7 +31,7 @@ def post_draft_pick(request):
 
     itemcount = 0
 
-    for key, player_str in pick_dict.iteritems():
+    for key, player_str in pick_dict.items():
         key_list = key.split("_")
         pick_num = int(key_list[2])
         owner = key_list[3]
@@ -194,7 +192,7 @@ def index(request):
     context['rounds_html'] = rounds_html_str
     context['welcome_message'] = welcome_message
     context['draft_year'] = draft_year
-    context['year_list'] = range(2018, now.year + 1)
+    context['year_list'] = range(2018, now.year + 2)
     context['player_dict'] = player_dict
     return render(request, 'index.html', context)
 

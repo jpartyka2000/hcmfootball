@@ -25,9 +25,6 @@ from testapp import views as testviews
 
 from django.contrib.auth import views as auth_views
 
-
-
-
 admin.autodiscover()
 
 urlpatterns = [
@@ -38,6 +35,5 @@ urlpatterns = [
     path('logout/', auth_views.LoginView.as_view(template_name="registration/logout.html"), name='logout'),
     #path('register/', special_registration_page, name='register'),
     path('admin/', admin.site.urls),
-
-    path(r'^post_draft_pick/$', testviews.post_draft_pick, name='post_draft_pick'),
+    path('football/post_draft_pick/', testviews.post_draft_pick, name='post_draft_pick'),
 ]
